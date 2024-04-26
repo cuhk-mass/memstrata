@@ -1,6 +1,6 @@
 # Managing Memory Tiers with CXL in Virtualized Environments
 
-This repository contains source code and instructions to reproduce key results in the paper. There are four major components:
+This repository contains source code and instructions to reproduce key results in the paper. There are three major components:
 
 * Modified Linux kernel (based on v5.19) that supports page coloring and page exchange
 * Modified QEMU (based on v6.2) with page coloring support
