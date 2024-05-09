@@ -81,9 +81,9 @@ using namespace std;
 #define MQ_BUFFER_SIZE 8192
 
 /* System-Related Stats */
-// #define TSC_FREQ 0
-// #define L3_MISS_LAT_TO_2LM_MR_INTERCEPT 0
-// #define L3_MISS_LAT_TO_2LM_MR_SLOPE 0
+#define TSC_FREQ 2.2e9
+#define L3_MISS_LAT_TO_2LM_MR_INTERCEPT 0
+#define L3_MISS_LAT_TO_2LM_MR_SLOPE 0
 
 template<typename F>
 void parse_list_str(char *list, F callback) {

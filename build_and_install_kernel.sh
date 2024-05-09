@@ -11,7 +11,7 @@ sudo apt-get update
 sudo apt-get build-dep linux linux-image-$(uname -r) -y || true
 sudo apt-get install -y libncurses-dev flex bison openssl libssl-dev dkms \
     libelf-dev libudev-dev libpci-dev libiberty-dev \
-    autoconf fakeroot bc cpio
+    autoconf fakeroot bc cpio rsync
 
 SCRIPT_PATH=`realpath $0`
 BASE_DIR=`dirname $SCRIPT_PATH`
@@ -36,6 +36,11 @@ printf "Configuring kernel...\n"
 ./scripts/config -e CONFIG_DAMON_SYSFS
 ./scripts/config -e CONFIG_DAMON_DBGFS
 ./scripts/config -e CONFIG_DAMON_RECLAIM
+./scripts/config -d SYSTEM_REVOCATION_KEYS
+./scripts/config -d SYSTEM_TRUSTED_KEYS
+./scripts/config -d CONFIG_MODULE_SIG
+./scripts/config -e CONFIG_MODULE_COMPRESS_NONE
+./scripts/config -d CONFIG_MODULE_COMPRESS_ZSTD
 make olddefconfig
 if [ -z "$(cat .config | grep CONFIG_DAMON)" ]; then
     printf "Cannot find CONFIG_DAMON in .config file. Please enable it manually by 'make nconfig'.\n"
