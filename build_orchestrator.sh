@@ -24,6 +24,7 @@ cd include
 sudo cp * /usr/include/
 cd ../lib
 sudo cp * /usr/lib64/
+sudo cp * /usr/lib/
 
 # Install dependencies
 sudo apt-get update

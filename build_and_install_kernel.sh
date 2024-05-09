@@ -11,7 +11,7 @@ sudo apt-get update
 sudo apt-get build-dep linux linux-image-$(uname -r) -y || true
 sudo apt-get install -y libncurses-dev flex bison openssl libssl-dev dkms \
     libelf-dev libudev-dev libpci-dev libiberty-dev \
-    autoconf fakeroot bc cpio rsync
+    autoconf fakeroot bc cpio rsync --allow-change-held-packages
 
 SCRIPT_PATH=`realpath $0`
 BASE_DIR=`dirname $SCRIPT_PATH`
