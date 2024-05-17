@@ -44,7 +44,7 @@ EOF
 sudo genisoimage -output /var/lib/libvirt/images/$domain_name/$domain_name-cidata.iso -volid cidata -joliet -rock user-data meta-data
 
 sudo virt-install --connect qemu:///system --virt-type kvm --name $domain_name \
-    --ram $((32 * 1024)) --vcpus=16 --os-type linux \
+    --ram $((32 * 1024)) --vcpus=16 -os-variant ubuntu20.04 \
     --disk path=/var/lib/libvirt/images/$domain_name/$domain_name.qcow2,format=qcow2 \
     --disk /var/lib/libvirt/images/$domain_name/$domain_name-cidata.iso,device=cdrom \
     --import --network network=default --noautoconsole
